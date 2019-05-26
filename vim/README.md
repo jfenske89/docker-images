@@ -1,6 +1,6 @@
-# ivim
+# vim
 
-A basic ivim image with some improvements.
+A custom vim image.
 
 ## Tags
 
