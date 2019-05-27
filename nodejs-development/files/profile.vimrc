@@ -14,6 +14,17 @@ Plug 'Shougo/vimproc'
 Plug 'Shougo/unite.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+" Start: nodejs-development
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+Plug 'burnettk/vim-angular'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'mlaursen/vim-react-snippets'
+Plug 'skatzteyp/vim-ultisnips-angular2'
+Plug 'joaohkfaria/vim-jest-snippets'
+Plug 'trkw/yarn.vim'
+" End: nodejs-development
 call plug#end()
 
 " Indentation
@@ -93,3 +104,7 @@ function! XTermPasteBegin()
   return ""
 endfunction
 " End: auto paste mode
+
+" Start: nodejs-development
+let g:angular_find_ignore = ['build/', 'dist/']
+" End: nodejs-development
