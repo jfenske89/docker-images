@@ -1,6 +1,6 @@
 # nodejs-development
 
-This is a a simple image for working on NodeJS applications.
+This is an image for working on NodeJS applications.
 
 ## Tags
 
@@ -10,3 +10,7 @@ This is a a simple image for working on NodeJS applications.
 ## Usage
 
 docker run -v "/path/to/mount:/mount/point" -it jfenske89/nodejs-development:latest
+
+## Docker Hub
+
+https://hub.docker.com/r/jfenske89/nodejs-development
