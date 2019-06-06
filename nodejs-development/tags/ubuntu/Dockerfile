@@ -2,21 +2,20 @@ FROM jfenske89/vim:ubuntu
 
 COPY files/profile.vimrc /root/.vimrc 
 
-# TODO: install nvm
-RUN apt update && apt install -q -y software-properties-common && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
-    apt update && \
-    apt install -q -y chromium-browser npm python3 yarn && \
-    vim +PlugInstall +qall && \
+RUN apt update && \
+    apt install -q -y chromium-browser python3 && \
     rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
+    apt-get clean && \
+    vim +PlugInstall +qall && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | zsh
 
-RUN addgroup developer && \
-    adduser --gecos '' --disabled-password --ingroup developer developer
-
-USER developer
-ENV HOME /home/developer
+ENV NVM_DIR /root/.nvm
+ENV NODE_VERSION 10.16.0
 ENV CHROME_BIN=/usr/bin/chromium-browser
+
+RUN . $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 ENTRYPOINT ["/bin/zsh"]
