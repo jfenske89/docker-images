@@ -7,3 +7,5 @@ mv /tmp/.zshrc /root/
 
 sed 's/zsh-syntax-highlighting/gitfast/' /root/.zshrc > /tmp/.zshrc
 mv /tmp/.zshrc /root/
+
+echo 'DISABLE_AUTO_UPDATE="true"' >> /root/.zshrc
